@@ -19,7 +19,9 @@ export default function CurrMemberModal(props) {
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='danger'>Delete</Button>
+        <Button variant='danger' onClick={props.delete}>
+          Delete
+        </Button>
       </Modal.Footer>
     </Modal>
   );

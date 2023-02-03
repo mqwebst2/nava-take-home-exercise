@@ -27,6 +27,8 @@ export default function NewMemberModal(props) {
     });
   };
 
+  const { name, desc, fruit } = currMember;
+
   return (
     <Modal
       show={props.show}
@@ -73,7 +75,15 @@ export default function NewMemberModal(props) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='primary'>Save New Member</Button>
+        <Button
+          variant='primary'
+          onClick={() => {
+            props.addMember(name, desc, fruit);
+            clearInputs();
+          }}
+        >
+          Save New Member
+        </Button>
       </Modal.Footer>
     </Modal>
   );

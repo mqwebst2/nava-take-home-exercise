@@ -8,20 +8,30 @@ import './App.css';
 import './custom.scss';
 
 export default function App() {
-  const [members, setMembers] = useState([
-    {
-      id: nanoid(),
-      name: 'Marques Webster',
-      desc: 'Head of Household',
-      fruit: 'Pineapple',
-    },
-  ]);
+  const [members, setMembers] = useState([]);
+
   const [showNew, setShowNew] = useState(false);
   const handleNewOpen = () => setShowNew(true);
   const handleNewClose = () => setShowNew(false);
 
+  const addMember = (newName, newDesc, newFruit) => {
+    const newMember = {
+      id: nanoid(),
+      name: newName,
+      desc: newDesc,
+      fruit: newFruit,
+    };
+    setMembers((prevMembers) => [...prevMembers, newMember]);
+    handleNewClose();
+  };
+  const deleteMember = (memberId) => {
+    setMembers((prevMembers) =>
+      prevMembers.filter((member) => memberId !== member.id)
+    );
+  };
+
   const memberElements = members.map((member) => {
-    return <CustomCard key={member.id} {...member} />;
+    return <CustomCard key={member.id} {...member} delete={deleteMember} />;
   });
 
   return (
@@ -43,7 +53,11 @@ export default function App() {
         </Button>
       </Container>
 
-      <NewMemberModal show={showNew} hide={handleNewClose} />
+      <NewMemberModal
+        show={showNew}
+        hide={handleNewClose}
+        addMember={addMember}
+      />
     </>
   );
 }

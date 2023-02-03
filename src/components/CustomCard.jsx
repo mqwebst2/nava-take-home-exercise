@@ -25,7 +25,12 @@ export default function CustomCard(props) {
         </Card.Body>
       </Card>
 
-      <CurrMemberModal show={showCurr} hide={handleCurrClose} {...props} />
+      <CurrMemberModal
+        show={showCurr}
+        hide={handleCurrClose}
+        {...props}
+        delete={() => props.delete(props.id)}
+      />
     </>
   );
 }
