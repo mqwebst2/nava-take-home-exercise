@@ -1,0 +1,10 @@
+# Nava Take Home Exercise
+
+## Technical Decisions
+Some of the things I considered for this take-home exercise were the technical competencies of the developing team(myself in this case), feature sets required, consistency, and scalability. As the client CMS is expecting to be able to scale this up to hundreds of millions of users, I found these to be the most appropriate considerations to achieve their desired goal. I eventually decided that the best approach would be to use React with Bootstrap. Not only were these two frameworks that the team (myself) is familiar with, but the frameworks also comprehensively allowed for the considerations in place to be met. React was an easy choice for me as this is the framework I work with the most and thoroughly enjoy using. React's ability to pass information between components will be helpful for a tool that stores user data. Bootstrap allows for some customizations where needed, but many of the necessary styles are already pre-packaged.
+
+## Design Choices
+The given design is already minimal and clean, which made developing the app straightforward. I leveraged Figma to do pixel measurements for the design elements, assisting in getting a near-pixel-perfect app. One design choice that I made that isn't explicit in the design is the layout of the user cards. The design shows two simple user cards with room to list additional members later. Something I noticed about the cards is that should further cards be generated, the cards would not fit evenly with the same widths. I believe it would make for a much cleaner and more consistent layout with static card widths; this further influenced how I approached the card layout. For this project, I chose to keep it in a horizontal, scrollable layout that overflows off the x-axis and can be scrolled to display additional cards.
+
+## Follow Up Questions
+How much of the designs are typically immutable vs mutable? Are developers expected to strictly stick to the designs or is there room for adjustments?
