@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { Button, Container, Stack } from 'react-bootstrap';
 import CustomHeader from './components/CustomHeader';
 import CustomCard from './components/CustomCard';
+import NewMemberModal from './components/NewMemberModal';
 import './App.css';
 import './custom.scss';
 
@@ -15,6 +16,9 @@ export default function App() {
       fruit: 'Pineapple',
     },
   ]);
+  const [showNew, setShowNew] = useState(false);
+  const handleNewOpen = () => setShowNew(true);
+  const handleNewClose = () => setShowNew(false);
 
   const memberElements = members.map((member) => {
     return <CustomCard key={member.id} {...member} />;
@@ -31,10 +35,15 @@ export default function App() {
         <Stack className='custom-card__list' direction='horizontal' gap={3}>
           {memberElements}
         </Stack>
-        <Button style={{ width: '280px', height: '60px', fontSize: '1.6rem' }}>
+        <Button
+          style={{ width: '280px', height: '60px', fontSize: '1.6rem' }}
+          onClick={handleNewOpen}
+        >
           Add new member
         </Button>
       </Container>
+
+      <NewMemberModal show={showNew} hide={handleNewClose} />
     </>
   );
 }
