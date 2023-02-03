@@ -42,7 +42,11 @@ export default function App() {
         <p className='m-0'>
           Welcome to the Marketplace! Review your household below:
         </p>
-        <Stack className='custom-card__list' direction='horizontal' gap={3}>
+        <Stack
+          className='custom-card__list pb-4'
+          direction='horizontal'
+          gap={3}
+        >
           {memberElements}
         </Stack>
         <Button
