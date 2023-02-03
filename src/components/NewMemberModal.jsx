@@ -3,7 +3,8 @@ import { Button, Container, Modal } from 'react-bootstrap';
 
 export default function NewMemberModal(props) {
   const [currMember, setCurrMember] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     desc: '',
     fruit: '',
   });
@@ -21,13 +22,14 @@ export default function NewMemberModal(props) {
 
   const clearInputs = () => {
     setCurrMember({
-      name: '',
+      firstName: '',
+      lastName: '',
       desc: '',
       fruit: '',
     });
   };
 
-  const { name, desc, fruit } = currMember;
+  const { firstName, lastName, desc, fruit } = currMember;
 
   return (
     <Modal
@@ -39,36 +41,45 @@ export default function NewMemberModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title>
-          {currMember.name ? currMember.name : 'New Household Member'}
+          {currMember.firstName ? currMember.firstName : 'New Household Member'}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         Hello! Please enter the new Household Member's Information:
         <Container>
-          <label htmlFor='name'>Member Name:</label>
+          <label htmlFor="firstName">First Name:</label>
           <input
-            type='text'
-            placeholder='Marques Webster'
-            className='form-control mb-3'
-            name='name'
-            value={currMember.name}
+            type="text"
+            placeholder="Marques"
+            className="form-control mb-3"
+            name="firstName"
+            value={currMember.firstName}
             onChange={handleChange}
           />
-          <label htmlFor='desc'>Description:</label>
+          <label htmlFor="lastName">Last Name:</label>
           <input
-            type='text'
-            placeholder='Household Contact'
-            className='form-control mb-3'
-            name='desc'
+            type="text"
+            placeholder="Webster"
+            className="form-control mb-3"
+            name="lastName"
+            value={currMember.lastName}
+            onChange={handleChange}
+          />
+          <label htmlFor="desc">Description:</label>
+          <input
+            type="text"
+            placeholder="Household Contact"
+            className="form-control mb-3"
+            name="desc"
             value={currMember.desc}
             onChange={handleChange}
           />
-          <label htmlFor='name'>Favorite Fruit:</label>
+          <label htmlFor="name">Favorite Fruit:</label>
           <input
-            type='text'
-            placeholder='Apples'
-            className='form-control mb-3'
-            name='fruit'
+            type="text"
+            placeholder="Apples"
+            className="form-control mb-3"
+            name="fruit"
             value={currMember.fruit}
             onChange={handleChange}
           />
@@ -76,9 +87,9 @@ export default function NewMemberModal(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button
-          variant='primary'
+          variant="primary"
           onClick={() => {
-            props.addMember(name, desc, fruit);
+            props.addMember(firstName, lastName, desc, fruit);
             clearInputs();
           }}
         >

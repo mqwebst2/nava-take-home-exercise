@@ -5,22 +5,24 @@ export default function CurrMemberModal(props) {
   return (
     <Modal show={props.show} onHide={props.hide}>
       <Modal.Header closeButton>
-        <Modal.Title>{props.name}</Modal.Title>
+        <Modal.Title>
+          {props.firstName} {props.lastName}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p>
-          <strong>Name:</strong> {props.name}
+          <strong>Name:</strong> {props.firstName} {props.lastName}
         </p>
         <p>
-          <strong>Description:</strong> {props.desc}
+          <strong>Description:</strong> {props.description}
         </p>
         <p>
-          <strong>Favorite Fruit:</strong> {props.fruit}
+          <strong>Favorite Fruit:</strong> {props.favoriteFruit}
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='danger' onClick={props.delete}>
-          Delete
+        <Button variant="primary" onClick={props.hide}>
+          Close
         </Button>
       </Modal.Footer>
     </Modal>
