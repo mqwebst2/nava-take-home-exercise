@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-block: 72px;
+}
+
+.custom-card__list {
+  overflow-x: scroll;
+}
