@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
-// import CurrMemberModal from './CurrMemberModal';
+import CurrMemberModal from './CurrMemberModal';
 
 export default function CustomCard(props) {
   const [showCurr, setShowCurr] = useState(false);
@@ -25,12 +25,7 @@ export default function CustomCard(props) {
         </Card.Body>
       </Card>
 
-      {/* <CurrMemberModal
-        show={showCurr}
-        hide={handleCurrClose}
-        {...props}
-        delete={() => props.delete(props.id)}
-      /> */}
+      <CurrMemberModal show={showCurr} hide={handleCurrClose} {...props} />
     </>
   );
 }
