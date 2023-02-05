@@ -33,10 +33,6 @@ export default function App() {
     };
     setMembers((prevMembers) => [...prevMembers, newMember]);
     handleNewClose();
-    fetch('https://63d006cc8a780ae6e681fea9.mockapi.io/api/members', {
-      method: 'POST',
-      body: JSON.stringify({ ...members }),
-    });
   };
   // const deleteMember = (memberId) => {
   //   setMembers((prevMembers) =>
